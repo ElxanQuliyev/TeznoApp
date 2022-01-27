@@ -1,0 +1,1617 @@
+﻿@model Web.ViewModels.HomeVM
+@{
+	ViewData["Title"]="HomePage";
+}
+		<!-- Start Tezno Slider Area -->
+		<section class="tezno-slider-area ptb-100">
+			<div class="tezno-slider-wrap owl-theme owl-carousel"  data-slider-id="1">
+				@foreach (var item in Model.SliderList)
+							{
+								<div class="tezno-slider-item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-6">
+							
+								<div class="tezno-slider-text one">
+									<span class="offer">45% Off This Month</span>
+									<h1>@item.Name <span> Buy It Now</span></h1>
+									<p>@(item.Description!=null && item.Description.Length>150 ? 
+										item.Description.Substring(0,150):item.Description)</p>
+									<div class="slider-btn">
+										<span class="price">$@item.Price</span>
+										<a href="cart.html" class="default-btn">
+											Add To Cart
+											<i class="flaticon-right"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="slider-img">
+									<img src="@item.PhotoUrl" alt="Image">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+							}
+			
+
+			</div>
+			
+			<!-- Start Carousel Thumbs -->
+			<div class="owl-thumbs tezno-slider-thumb" data-slider-id="1">
+				<div class="owl-thumb-item">
+					<span>01</span>
+				</div>
+
+				<div class="owl-thumb-item">
+					<span>02</span>
+				</div>
+
+				<div class="owl-thumb-item">
+					<span>03</span>
+				</div>
+			</div>
+			<!-- End Carousel Thumbs -->
+			<div class="slider-bottom-shape">
+				<img src="assets/img/demo-watch/slider/slider-bottom-shape.png" alt="Image">
+			</div>
+			<div class="lines">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
+			</div>
+		</section>
+		<!-- End Tezno SlideArea -->
+
+		<!-- Start Service Area -->
+		<section class="service-area pt-100 pb-70">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-sm-6">
+						<div class="single-service">
+							<i class="flaticon-offer"></i>
+							<h3>Limited Time Offers</h3>
+							<p>Talk to know about the offer</p>
+							<a href="#">
+								Claim offer
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6">
+						<div class="single-service">
+							<i class="flaticon-trolley"></i>
+							<h3>24/7 Client Support</h3>
+							<p>Talk to know about the offer</p>
+							<a href="tel:+123 456 789">
+								+123 456 789
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
+						<div class="single-service">
+							<i class="flaticon-bill"></i>
+							<h3>Reasonable Pricing</h3>
+							<p>Talk to know about the offer</p>
+							<a href="#">
+								
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Service Area -->
+
+		<!-- Start Discover Products Area -->
+		<section class="discover-products-area pb-100">
+			<div class="container">
+				<div class="section-title watch-section-title">
+					<h2>Discover Products</h2>
+					<p>Exclusive styles only available at the fact</p>
+				</div>
+				<div class="row">
+			@if (Model.NewProducts != null)
+			{
+			    foreach (var productNew in Model.NewProducts)
+					{
+					<div class="col-lg-4 col-sm-6">
+						<div class="single-discover-products">
+				<a asp-controller="Product" asp-action="Details" asp-route-id="@productNew.ID">
+							<div class="product-img">
+								<div class="product-img-1">
+									<img src="@productNew.PhotoUrl" alt="Image">
+									<div class="product-img-2">
+										<img src="@productNew.PhotoUrl" alt="Image">
+									</div>
+								</div>
+							</div>
+							<div class="product-content">
+								<span class="title">Armani</span>
+								<h3>@productNew.Name</h3>
+								<span class="price">$@productNew.Price</span>
+							</div>
+							<div class="purchase-bar">
+								<ul>
+									<li>
+										<a href="#product-view-one" data-toggle="modal">
+											<i class="flaticon-search"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="flaticon-heart"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="flaticon-loading"></i>
+										</a>
+									</li>
+								</ul>
+								<a href="cart.html" class="default-btn">
+									Add To Cart
+									<i class="flaticon-right"></i>
+								</a>
+							</div>
+					</a>
+						</div>
+					</div>	
+					}
+			}
+					
+					<div class="col-12">
+						<div class="view-all text-center">
+							<a href="watches.html" class="default-btn">
+								View All Products
+								<i class="flaticon-right"></i>
+							</a>
+						</div>
+					</div>				
+
+				</div>
+			</div>
+		</section>
+		<!-- End Discover Products Area -->
+		
+		<!-- Start Seasons Area -->
+		<section class="seasons-area">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-6 pl-0">
+						<div class="seasons-wrap">
+							<span class="price">From</span>
+							<span class="pricing">$299.99</span>
+							<h2>Glamour Watches For Man</h2>
+							<a href="shop-grid-view.html" class="default-btn">
+								Shop Now
+								<i class="flaticon-right"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-6 pr-0">
+						<div class="seasons-wrap seasons-off-wrap">
+							<div class="seasons-off-content">
+								<img src="assets/img/demo-watch/seasons-clock-img.png" alt="Image">
+								<span class="seasons-off">30% Off-seasons</span>
+								<h2>Sumeria Ferrari</h2>
+								<a href="shop-grid-view.html" class="default-btn">
+									Browse All Collection
+									<i class="flaticon-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Seasons Area -->
+
+		<!-- Start Partners Area -->
+		<div class="partners-area ptb-100">
+			<div class="container">
+				<div class="section-title watch-section-title">
+					<h2>Our Partners</h2>
+				</div>
+				<div class="partners-wrap owl-theme owl-carousel">
+					<div class="partners-item">
+						<a href="#">
+							<img src="assets/img/demo-watch/partners/1.png" alt="Image">
+						</a>
+					</div>
+					<div class="partners-item">
+						<a href="#">
+							<img src="assets/img/demo-watch/partners/2.png" alt="Image">
+						</a>
+					</div>
+					<div class="partners-item">
+						<a href="#">
+							<img src="assets/img/demo-watch/partners/3.png" alt="Image">
+						</a>
+					</div>
+					<div class="partners-item">
+						<a href="#">
+							<img src="assets/img/demo-watch/partners/4.png" alt="Image">
+						</a>
+					</div>
+					<div class="partners-item">
+						<a href="#">
+							<img src="assets/img/demo-watch/partners/5.png" alt="Image">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Partners Area -->
+
+		<!-- Start Best Week Area -->
+		<section class="best-week-area pb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="best-week-content">
+							<h3>Best Of The Week</h3>
+							<p class="black-title">French Connection <span>Black</span></p>
+							<span>$20.00</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sauodit aut fugit, sed quia consequuntur magni dolores eos qui ratione agna aliqua. Ut enim ad minim magna aliqua</p>
+							<form class="quantity input-counter">
+								<span class="minus-btn">
+									<i class='bx bx-minus' ></i>
+								</span>
+								<input type="text" value="1">
+								<span class="plus-btn">
+									<i class='bx bx-plus' ></i>
+								</span>
+							</form>
+							<a href="cart.html" class="default-btn">
+								Add To Cart
+								<i class="flaticon-right"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="best-week-img"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Best Week Area -->
+
+		<!-- Start Weekly Specials Area -->
+		<section class="weekly-specials-area pb-100">
+			<div class="container">
+				<div class="weekly-specials-wrap">
+					<div class="section-title watch-section-title">
+						<h2>Weekly Specials</h2>
+						<p>Offer will be sent to your smartphone</p>
+					</div>
+					<div class="tab">
+						<ul class="tabs">
+							<li>
+								<a href="#">
+									Top Of The Month
+								</a>
+							</li>
+	
+							<li>
+								<a href="#">
+									New Arrivals
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Top Of The Week
+								</a>
+							</li>
+						</ul>
+						<div class="tab_content">
+							<div class="tabs_item">
+								<div class="weekly-specials-slider-wrap owl-theme owl-carousel">
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Armani</span>
+											<h3>Emporia Armani</h3>
+											<span class="price">$399.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Boss</span>
+											<h3>Hugo Boss Orange</h3>
+											<span class="price">$590.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Moshi</span>
+											<h3>Moshi Monsters</h3>
+											<span class="price">$450.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Armani</span>
+											<h3>Skagen Connected</h3>
+											<span class="price">$120.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs_item custom-mb">
+								<div class="row">
+									<div class="col-lg-4 col-sm-6 ">
+										<div class="single-discover-products">
+											<div class="product-img">
+												<div class="product-img-1">
+													<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+													<div class="product-img-2">
+														<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+													</div>
+												</div>
+											</div>
+											<div class="product-content">
+												<span class="title">Armani</span>
+												<h3>Skagen Connected</h3>
+												<span class="price">$120.00</span>
+											</div>
+											<div class="purchase-bar">
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-sm-6 ">
+										<div class="single-discover-products">
+											<div class="product-img">
+												<div class="product-img-1">
+													<img src="assets/img/demo-watch/discover-products/5.png" alt="Image">
+													<div class="product-img-2">
+														<img src="assets/img/demo-watch/discover-products/5.png" alt="Image">
+													</div>
+												</div>
+											</div>
+											<div class="product-content">
+												<span class="title">Turnout</span>
+												<h3>Smart Turnout</h3>
+												<span class="price">$370.00</span>
+											</div>
+											<div class="purchase-bar">
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
+										<div class="single-discover-products mb-0">
+											<div class="product-img">
+												<div class="product-img-1">
+													<img src="assets/img/demo-watch/discover-products/6.png" alt="Image">
+													<div class="product-img-2">
+														<img src="assets/img/demo-watch/discover-products/6.png" alt="Image">
+													</div>
+												</div>
+											</div>
+											<div class="product-content">
+												<span class="title">Swiss</span>
+												<h3>Victorinox Swiss Army</h3>
+												<span class="price">$399.00</span>
+											</div>
+											<div class="purchase-bar">
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs_item">
+								<div class="weekly-specials-slider-wrap owl-theme owl-carousel">
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Armani</span>
+											<h3>Emporia Armani</h3>
+											<span class="price">$399.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Boss</span>
+											<h3>Hugo Boss Orange</h3>
+											<span class="price">$590.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Moshi</span>
+											<h3>Moshi Monsters</h3>
+											<span class="price">$450.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Armani</span>
+											<h3>Skagen Connected</h3>
+											<span class="price">$120.00</span>
+										</div>
+										<div class="purchase-bar">
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs_item custom-mb">
+								<div class="row">
+									<div class="col-lg-4 col-sm-6">
+										<div class="single-discover-products">
+											<div class="product-img">
+												<div class="product-img-1">
+													<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+													<div class="product-img-2">
+														<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+													</div>
+												</div>
+											</div>
+											<div class="product-content">
+												<span class="title">Armani</span>
+												<h3>Skagen Connected</h3>
+												<span class="price">$120.00</span>
+											</div>
+											<div class="purchase-bar">
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-sm-6">
+										<div class="single-discover-products">
+											<div class="product-img">
+												<div class="product-img-1">
+													<img src="assets/img/demo-watch/discover-products/5.png" alt="Image">
+													<div class="product-img-2">
+														<img src="assets/img/demo-watch/discover-products/5.png" alt="Image">
+													</div>
+												</div>
+											</div>
+											<div class="product-content">
+												<span class="title">Turnout</span>
+												<h3>Smart Turnout</h3>
+												<span class="price">$370.00</span>
+											</div>
+											<div class="purchase-bar">
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
+										<div class="single-discover-products mb-0">
+											<div class="product-img">
+												<div class="product-img-1">
+													<img src="assets/img/demo-watch/discover-products/6.png" alt="Image">
+													<div class="product-img-2">
+														<img src="assets/img/demo-watch/discover-products/6.png" alt="Image">
+													</div>
+												</div>
+											</div>
+											<div class="product-content">
+												<span class="title">Swiss</span>
+												<h3>Victorinox Swiss Army</h3>
+												<span class="price">$399.00</span>
+											</div>
+											<div class="purchase-bar">
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Weekly Specials Area -->
+
+		<!-- Start Subscribe Area -->
+		<section class="subscribe-area ptb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="subscribe-content">
+							<h2>Subscribe To​ Our <span>Newsletter</span></h2>
+							<p>
+								<i class="flaticon-tick"></i>
+								By checking this box, agree you have read and accepted the 
+								<a href="terms-conditions.html">Terms of use</a>
+							</p>
+							<form class="newsletter-form" data-toggle="validator">
+								<input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL" required autocomplete="off">
+
+								<button class="default-btn" type="submit">
+									Subscribe
+									<i class="flaticon-right"></i>
+								</button>
+
+								<div id="validator-newsletter" class="form-result"></div>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="subscribe-img">
+							<img src="assets/img/demo-watch/subscribe-img.png" alt="Image">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="white-shape">
+				<img src="assets/img/demo-watch/shape/white-shape-top.png" alt="Image">
+				<img src="assets/img/demo-watch/shape/white-shape-bottom.png" alt="Image">
+			</div>
+		</section>
+		<!-- End Subscribe Area -->
+
+		<!-- Start Delivery Area -->
+		<section class="delivery-area pt-100 pb-70">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<div class="single-delivery">
+							<i class="flaticon-truck"></i>
+							<h3>Free Shipping & Return</h3>
+							<p>Free worldwide shipping on all Area order above $100</p>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-delivery">
+							<i class="flaticon-payment-method"></i>
+							<h3>Shop With Confidence</h3>
+							<p>Our Buyer Protection covers your purchase from click to delivery</p>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 offset-sm-3 offset-lg-0">
+						<div class="single-delivery">
+							<i class="flaticon-card"></i>
+							<h3>Safe Payment</h3>
+							<p>Pay with the world’s most popular and secure payment methods</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Delivery Area -->
+
+		<!-- Start Jaeger Coulter Area -->
+		<section class="jaeger-coulter-area pb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="jaeger-coulter-wrap">
+							<div class="jaeger-content">
+								<img src="assets/img/demo-watch/jaeger/1.png" alt="Image">
+								<span class="new">New Arrival</span>
+								<span class="offer">10% off Seasons</span>
+								<h3>Jaeger-LeCoultre</h3>
+								<a href="shop-grid-view.html" class="default-btn">
+									Shop Now
+									<i class="flaticon-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="collection-wrap">
+							<span>Collection Arrived</span>
+							<h3>Vacation Constantan</h3>
+							<a href="#" class="default-btn">
+								Shop Now
+								<i class="flaticon-right"></i>
+							</a>
+							<img src="assets/img/demo-watch/jaeger/2.png" alt="Image">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Jaeger Coulter Area -->
+
+		<!-- Start Featured Products Area -->
+		<section class="featured-products-area pb-100">
+			<div class="container">
+				<div class="section-title watch-section-title">
+					<h2>Featured Products</h2>
+					<p>Featured products styles only available</p>
+				</div>
+				<div class="tab">
+					<ul class="tabs">
+						<li>
+							<a href="#">
+								All
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								This Week
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								This Month
+							</a>
+						</li>
+					</ul>
+					<div class="tab_content">
+						<div class="tabs_item">
+							<div class="weekly-specials-slider-wrap owl-theme owl-carousel">
+								<div class="single-discover-products bg-1">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Armani</span>
+										<h3>Emporia Armani</h3>
+										<span class="price">$399.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Emporia Armani</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="single-discover-products bg-2">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Boss</span>
+										<h3>Hugo Boss Orange</h3>
+										<span class="price">$590.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Hugo Boss Orange</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="single-discover-products bg-3">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Moshi</span>
+										<h3>Moshi Monsters</h3>
+										<span class="price">$450.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Moshi Monsters</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="single-discover-products bg-4">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Armani</span>
+										<h3>Skagen Connected</h3>
+										<span class="price">$120.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Skagen Connected</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tabs_item custom-mb">
+							<div class="row">
+								<div class="col-lg-4 col-sm-6">
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Armani</span>
+											<h3>Skagen Connected</h3>
+											<span class="price">$120.00</span>
+										</div>
+										<div class="purchase-bar-wrap">
+											<div class="purchase-bar">
+												<h3>Skagen Connected</h3>
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-sm-6">
+									<div class="single-discover-products">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/5.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/5.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Turnout</span>
+											<h3>Smart Turnout</h3>
+											<span class="price">$370.00</span>
+										</div>
+										<div class="purchase-bar-wrap">
+											<div class="purchase-bar">
+												<h3>Smart Turnout</h3>
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
+									<div class="single-discover-products mb-0">
+										<div class="product-img">
+											<div class="product-img-1">
+												<img src="assets/img/demo-watch/discover-products/6.png" alt="Image">
+												<div class="product-img-2">
+													<img src="assets/img/demo-watch/discover-products/6.png" alt="Image">
+												</div>
+											</div>
+										</div>
+										<div class="product-content">
+											<span class="title">Swiss</span>
+											<h3>Victorinox Swiss Army</h3>
+											<span class="price">$399.00</span>
+										</div>
+										<div class="purchase-bar-wrap">
+											<div class="purchase-bar">
+												<h3>Victorinox Swiss Army</h3>
+												<ul>
+													<li>
+														<a href="#product-view-one" data-toggle="modal">
+															<i class="flaticon-search"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-heart"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i class="flaticon-loading"></i>
+														</a>
+													</li>
+												</ul>
+												<a href="cart.html" class="default-btn">
+													Add To Cart
+													<i class="flaticon-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tabs_item">
+							<div class="weekly-specials-slider-wrap owl-theme owl-carousel">
+								<div class="single-discover-products bg-1">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/1.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Armani</span>
+										<h3>Emporia Armani</h3>
+										<span class="price">$399.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Emporia Armani</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="single-discover-products bg-2">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/2.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Boss</span>
+										<h3>Hugo Boss Orange</h3>
+										<span class="price">$590.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Hugo Boss Orange</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="single-discover-products bg-3">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/3.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Moshi</span>
+										<h3>Moshi Monsters</h3>
+										<span class="price">$450.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Moshi Monsters</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="single-discover-products bg-4">
+									<div class="product-img">
+										<div class="product-img-1">
+											<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+											<div class="product-img-2">
+												<img src="assets/img/demo-watch/discover-products/4.png" alt="Image">
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<span class="title">Armani</span>
+										<h3>Skagen Connected</h3>
+										<span class="price">$120.00</span>
+									</div>
+									<div class="purchase-bar-wrap">
+										<div class="purchase-bar">
+											<h3>Skagen Connected</h3>
+											<ul>
+												<li>
+													<a href="#product-view-one" data-toggle="modal">
+														<i class="flaticon-search"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-heart"></i>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="flaticon-loading"></i>
+													</a>
+												</li>
+											</ul>
+											<a href="cart.html" class="default-btn">
+												Add To Cart
+												<i class="flaticon-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Featured Products Area -->
+
+		<!-- Start Our Articles Area -->
+		<section class="our-articles-area pt-100 pb-70">
+			<div class="container">
+				<div class="section-title watch-section-title">
+					<h2>Our Articles</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<div class="single-articles">
+							<a href="news-details.html">
+								<img src="assets/img/demo-watch/articles/1.jpg" alt="Image">
+							</a>
+							<div class="articles-content">
+								<a href="#" class="share"><i class="bx bx-share-alt"></i> Share</a>
+								<h3>
+									<a href="news-details.html">
+										Magazine Luxury Watches
+									</a>
+								</h3>
+								<ul>
+									<li>
+										<img src="assets/img/demo-watch/articles/admin-1.jpg" alt="Image">
+									</li>
+									<li>
+										<a href="#">
+											Admin /
+										</a>
+									</li>
+									<li>
+										August 30-2020
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-articles">
+							<a href="news-details.html">
+								<img src="assets/img/demo-watch/articles/2.jpg" alt="Image">
+							</a>
+							<div class="articles-content">
+								<a href="#" class="share"><i class="bx bx-share-alt"></i> Share</a>
+								<h3>
+									<a href="news-details.html">
+										Might Many Fresh Watch
+									</a>
+								</h3>
+								<ul>
+									<li>
+										<img src="assets/img/demo-watch/articles/admin-2.jpg" alt="Image">
+									</li>
+									<li>
+										<a href="#">
+											Admin /
+										</a>
+									</li>
+									<li>
+										June 22-2020
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+						<div class="single-articles">
+							<a href="news-details.html">
+								<img src="assets/img/demo-watch/articles/3.jpg" alt="Image">
+							</a>
+							<div class="articles-content">
+								<a href="#" class="share"><i class="bx bx-share-alt"></i> Share</a>
+								<h3>
+									<a href="news-details.html">
+										Brand And Watch Models 
+									</a>
+								</h3>
+								<ul>
+									<li>
+										<img src="assets/img/demo-watch/articles/admin-3.jpg" alt="Image">
+									</li>
+									<li>
+										<a href="#">
+											Admin /
+										</a>
+									</li>
+									<li>
+										April 25-2020
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Our Articles Area -->
+
+		<!-- Start Collection Area -->
+		<section class="collection-area ptb-100">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-4 col-md-6">
+						<div class="collection-single">
+							<div class="collection-img">
+								<img src="assets/img/demo-watch/collection/1.png" alt="Image">
+								<div class="collection-shape">
+									<img src="assets/img/demo-watch/collection/1-shape.png" alt="Image">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="collection-single">
+							<div class="collection-content">
+								<span>Collection</span>
+								<h3>Bell & Ross</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tgnamodo viverra maecenas facilisis.</p>
+								<a href="#" class="default-btn">
+									Learn More
+									<i class="flaticon-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+						<div class="collection-single">
+							<div class="collection-img">
+								<img src="assets/img/demo-watch/collection/2.png" alt="Image">
+								<div class="collection-shape">
+									<img src="assets/img/demo-watch/collection/2-shape.png" alt="Image">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Collection Area -->
+
+		
