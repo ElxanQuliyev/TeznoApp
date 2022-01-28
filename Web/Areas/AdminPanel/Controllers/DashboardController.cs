@@ -5,7 +5,7 @@ using Services;
 namespace Web.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
       

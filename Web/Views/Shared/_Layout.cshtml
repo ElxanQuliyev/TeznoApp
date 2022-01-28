@@ -115,7 +115,7 @@
 													<a href="shop-grid-view.html" class="nav-link">Shop Grid view</a>
 												</li>
 												<li class="nav-item">
-													<a href="cart.html" class="nav-link">Cart</a>
+													<a asp-controller="Cart" class="nav-link">Cart</a>
 												</li>
 												<li class="nav-item">
 													<a href="checkout.html" class="nav-link">Checkout</a>
@@ -198,7 +198,7 @@
 											</ul>
 										</div>
 										<div class="cart-wrap">
-											<a class="cart-icon" href="cart.html">
+											<a class="cart-icon" asp-controller="Cart">
 												<i class='bx bx-cart-alt'></i>
 												<span>3</span>
 											</a>
@@ -232,7 +232,7 @@
 			<!-- End Tezno Navbar Area -->
 		</header>
 		<!-- End Heder Area -->
-@RenderBody();
+@RenderBody()
 <!-- Start Footer Top Area -->
 		<footer class="footer-top-area pt-100 pb-70">
 			<div class="container">
@@ -584,6 +584,7 @@
 		<script src="/assets/js/layerslider.transitions.js"></script>
 		<!-- Kreaturamedia JS -->
 		<script src="/assets/js/layerslider.kreaturamedia.jquery.js"></script>
+		<script type="text/javascript" src="/js/MyCart.js"></script>
 		@await RenderSectionAsync("Scripts" , required:false)
 		
         <!-- Custom JS -->

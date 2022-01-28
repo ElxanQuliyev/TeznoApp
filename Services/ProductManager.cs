@@ -56,6 +56,13 @@ namespace Services
             var selectedProduct = _context.Products.Include(x => x.Category).Where(x => !x.IsDeleted).FirstOrDefault(x => x.ID == id);
            return selectedProduct;
         }
+
+        public List<Product?> GetByIds(IEnumerable<int> ids)
+        {
+            var selectedProducts = _context.Products.Where(pr => ids.Contains(pr.ID)).ToList();
+            return selectedProducts;
+
+        }
         public List<Product>? GetSliders()
         {
             return _context.Products.Where(x => x.IsSlider && !x.IsDeleted).OrderByDescending(x=>x.ModifiedOn).Take(5).ToList();

@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-responsive table-bordered">
+<table id="productTable" class="table table-responsive table-bordered">
     <thead>
         <tr>
             <th>
@@ -22,22 +22,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.InStock)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.PhotoUrl)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublishDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedOn)
-            </th>
+          
             <th>
                 @Html.DisplayNameFor(model => model.Category)
             </th>
-            <th></th>
+            <th>#</th>
         </tr>
     </thead>
     <tbody>
@@ -53,20 +46,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.InStock)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount)
-            </td>
+        
             <td>
                  <img src="@Html.DisplayFor(modelItem => item.PhotoUrl)"/>
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublishDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedOn)
-            </td>
-          
-          
             <td>
                 @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
@@ -79,3 +62,11 @@
 }
     </tbody>
 </table>
+
+@section Scripts{
+    <script>
+        $(document).ready( function () {
+            $('#productTable').DataTable();
+        });
+    </script>
+}

@@ -1,0 +1,15 @@
+﻿@model List<Entities.Product>
+
+<h4>Cart Page</h4>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <p>@item.Name</p>
+    }
+}
+else
+{
+
+    <p class="my-5 alert-danger">Sebetde mehsul yoxdur...</p>
+}

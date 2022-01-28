@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Web.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
-    [Authorize(Roles ="Admin")]
+    //[Authorize(Roles ="Admin")]
     public class CategoriesController : Controller
     {
         private readonly CategoryManager _categoryManager;

@@ -481,13 +481,12 @@
   </div>
   <!-- container-scroller -->
   <!--jquery-->
-  <script src="/adminpanel/js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="/adminpanel/js/jquery-3.6.0.min.js"></script>
   <!--jquery-end-->
-  <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-  @await RenderSectionAsync("Scripts", required:false)
   <!-- plugins:js -->
   <script src="/adminpanel/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
+
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
@@ -496,6 +495,9 @@
   <script src="/adminpanel/js/misc.js"></script>
   <script src="/adminpanel/js/settings.js"></script>
   <script src="/adminpanel/js/todolist.js"></script>
+  <script type="text/javascript" src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+  @await RenderSectionAsync("Scripts", required:false)
+    
   <!-- endinject -->
   <!-- Custom js for this page-->
   <!-- End custom js for this page-->
