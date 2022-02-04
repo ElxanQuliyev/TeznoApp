@@ -35,10 +35,9 @@ $(".btn-add-cart").click(function () {
     productIds.push(productId);
     setCookie("cartItem", productIds.join("-"), 3)
 })
-console.log(productIds)
-
 
 $(".plus-btn").on("click", function () {
+    let totalPrice = 0;
     const inputVal = Number($(this).parent().find("input").val()) + 1
     if (inputVal !== 1) {
         $(".minus-btn").css({ "pointer-events": "auto" })
@@ -50,14 +49,21 @@ $(".plus-btn").on("click", function () {
     }
     const price = Number($(this).parent().attr("pro-price"))
     $(this).parents("tr").find(".subtotal-amount").text("$" + price * inputVal)
-    console.log(price)
-    setCookie("cartItem", productIds.join("-"), 1)
 
+    setCookie("cartItem", productIds.join("-"), 1)
+    let subTotal = $(".cart-table .subtotal-amount").text().split("$")
+    for (let i = 1; i < subTotal.length; i++) {
+        totalPrice += Number(subTotal[i])
+    }
+    $(".cart-totals ul li span b").html(`$${totalPrice}`)
 })
 
 
+
 $(".minus-btn").on("click", function () {
-        const inputVal = Number($(this).parent().find("input").val()) - 1
+    let totalPrice = 0;
+
+    const inputVal = Number($(this).parent().find("input").val()) - 1
 
     if (inputVal === 1) {
         $(this).css({ "pointer-events": "none" })
@@ -71,4 +77,30 @@ $(".minus-btn").on("click", function () {
     const price = Number($(this).parent().attr("pro-price"))
     $(this).parents("tr").find(".subtotal-amount").text("$" + price * inputVal)
     setCookie("cartItem", productIds.join("-"), 1)
-    console.log(productIds)})
+    let subTotal = $(".cart-table .subtotal-amount").text().split("$")
+    for (let i = 1; i < subTotal.length; i++) {
+        totalPrice += Number(subTotal[i])
+    }
+    $(".cart-totals ul li span b").html(`$${totalPrice}`)
+})
+
+$(".product-subtotal .remove").on("click", function (e) {
+    e.preventDefault()
+    let totalPrice = 0;
+    const productId = $(this).attr("pro-id");
+    productIds = productIds.filter(p => p !== productId)
+    setCookie("cartItem", productIds.join("-"), 1)
+    $(this).parents("tr").remove();
+
+    let subTotal = $(".cart-table .subtotal-amount").text().split("$")
+    for (let i = 1; i < subTotal.length; i++) {
+        totalPrice += Number(subTotal[i])
+    }
+    $(".cart-totals ul li span b").html(`$${totalPrice}`)
+    if ($(".cart-area table tbody tr").length ==0) {
+        
+        $(".cart-area .my-cart-area").html('<p class="alert alert-danger">Kartda Məhsul tapılmadı</p>')
+    }
+})
+
+

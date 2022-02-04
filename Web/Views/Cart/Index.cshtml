@@ -21,7 +21,7 @@
 <section class="cart-area ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12 my-cart-area">
                 @if (Model != null && Model.Products!=null && Model.ProductIds!=null && Model.ProductIds.Count>0)
                 {
                     <form>
@@ -39,13 +39,13 @@
                                     </thead>
 
                                     <tbody>
-                                        @{
+                                        @*@{
                                             decimal totalPrice = 0;
-                                        }
+                                        }*@
                                         @foreach (var item in Model.Products)
                                         {
                                             var quantity = Model.ProductIds.Where(x => x == item.ID).Count();
-                                            totalPrice += item.Price * quantity;
+                                           @* totalPrice += item.Price * quantity;*@
                                             <tr>
                                                 <td class="product-thumbnail">
                                                     <a href="#">
@@ -74,9 +74,9 @@
                                                 </td>
 
                                                 <td class="product-subtotal">
-                                                    <span class="subtotal-amount">@(item.Price*quantity)</span>
+                                                    <span class="subtotal-amount">$@(item.Price*quantity)</span>
 
-                                                    <a href="#" class="remove">
+                                                    <a href="" class="remove" pro-id="@item.ID">
                                                         <i class='bx bx-trash'></i>
                                                     </a>
                                                 </td>
@@ -93,14 +93,14 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-7 col-sm-7 col-md-7">
                                         <div class="continue-shopping-box">
-                                            <a href="#" class="default-btn page-btn">
+                                            <a asp-controller="home" class="default-btn page-btn">
                                                 Continue Shopping
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-5 col-sm-5 col-md-5 text-right">
-                                        <a href="#" class=" default-btn page-btn">
+                                        <a asp-action="Index" class=" default-btn page-btn">
                                             Update Cart
                                         </a>
                                     </div>
@@ -146,9 +146,9 @@
                                         @*<li>Subtotal <span>$150.00</span></li>*@
                                         @*<li>Shipping <span>$30.00</span></li>*@
                                         @*<li>Coupon <span>$20.00</span></li>*@
-                                        <li>Total <span><b>@totalPrice</b></span></li>
+                                        <li>Total <span><b>@Model.Products.Sum(c=>c.Price*Model.ProductIds.Where(id=>id==c.ID).Count())</b></span></li>
                                     </ul>
-                                    <a href="#" class="default-btn page-btn">
+                                    <a asp-controller="Orders" asp-action="Checkout" class="default-btn page-btn">
                                         Proceed to Checkout
                                     </a>
                                 </div>
